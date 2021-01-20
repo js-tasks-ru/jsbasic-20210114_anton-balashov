@@ -4,5 +4,9 @@
  * @returns {string}
  */
 function ucFirst(str) {
-  // ваш код...
+  if (typeof str !== "string") {
+    throw new Error("argument should be a string");
+  }
+
+  return str && str.charAt(0).toUpperCase() + str.slice(1);
 }
