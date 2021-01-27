@@ -20,17 +20,8 @@ function showSalary(users, age) {
     throw new Error("second argument should be a valid number");
   }
 
-  return users.reduce((acc, user, i) => {
-    if (user.age > age) {
-      return acc;
-    }
-
-    let record = `${user.name}, ${user.balance}`;
-
-    if (i > 0) {
-      record = "\n" + record;
-    }
-
-    return acc + record;
-  }, "");
+  return users
+    .filter((user) => user.age <= age)
+    .map((user) => `${user.name}, ${user.balance}`)
+    .join("\n");
 }
